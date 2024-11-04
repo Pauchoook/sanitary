@@ -1,0 +1,39 @@
+.title {
+  font-weight: 800;
+  margin: 0;
+  text-transform: uppercase;
+  span {
+    color: var(--cream);
+  }
+}
+
+.title-1 {
+  font-size: 48px;
+  @include laptop {
+    font-size: 42px;
+  }
+  @include laptop-middle {
+    font-size: 38px;
+  }
+  @include laptop-min {
+    font-size: 36px;
+  }
+  @include tablet {
+    font-size: 32px;
+  }
+}
+.title-2 {
+  font-size: 40px;
+  @include laptop {
+    font-size: 36px;
+  }
+  @include laptop-middle {
+    font-size: 32px;
+  }
+  @include laptop-min {
+    font-size: 28px;
+  }
+  @include tablet {
+    font-size: 24px;
+  }
+}

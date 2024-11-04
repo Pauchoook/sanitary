@@ -1,0 +1,17 @@
+.contacts {
+  position: relative;
+  z-index: 1;
+  min-height: 890px;
+  background-color: var(--sand);
+  padding-top: 200px;
+  &__title {
+    text-align: center;
+  }
+  &__map {
+    position: absolute;
+    height: 580px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

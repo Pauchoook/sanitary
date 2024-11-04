@@ -1,0 +1,506 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: transform 0.2s ease;
+  z-index: 100;
+  &.active {
+    transform: translateY(-60px);
+    background-color: transparent;
+
+    .header__main {
+      background-color: transparent;
+    }
+    .header__main-wrapper {
+      border-radius: 40px;
+      padding: 8px 20px;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+      background-color: white;
+    }
+  }
+  @include laptop-middle {
+    &.active {
+      .header__main-wrapper {
+        gap: 10px;
+        padding: 8px 10px;
+      }
+    }
+  }
+  &__top {
+    padding: 9px 0px;
+    background-color: var(--porcelain);
+    @include laptop-min {
+      display: none;
+    }
+  }
+  &__top-container {
+    @include flex-between;
+    gap: 30px;
+  }
+  &__city {
+    font-size: 16px;
+    @include laptop-min {
+      font-size: 14px;
+    }
+  }
+  &__top-info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+    flex: 1;
+    @include laptop-min {
+      gap: 15px;
+      flex-direction: column;
+      align-items: start;
+      width: 100%;
+    }
+  }
+  &__address {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 16px;
+    @include laptop-min {
+      font-size: 14px;
+    }
+  }
+  &__address-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+  }
+  &__social {
+    display: flex;
+    gap: 15px;
+    @include laptop-min {
+      gap: 20px;
+    }
+  }
+  &__social-btn {
+    display: block;
+    width: 30px;
+    height: 30px;
+    color: var(--primary);
+    max-width: 170px;
+    transition: color 0.2s ease;
+    @include hover {
+      color: var(--cream);
+    }
+  }
+  &__social-icon {
+    width: 100%;
+    height: 100%;
+  }
+  &__order-btn {
+    max-width: 170px;
+    @include laptop-min {
+      max-width: none;
+      margin-top: 30px;
+    }
+  }
+  &__main {
+    position: relative;
+    padding: 15px 0px;
+    background-color: white;
+    transition: background-color 0.2s ease;
+    @include laptop-middle {
+      position: static;
+    }
+  }
+  &__main-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    z-index: 60;
+    transition:
+      background-color 0.2s ease,
+      border-radius 0.2s ease,
+      box-shadow 0.2s ease 0.2s,
+      padding 0.2s ease 0.2s;
+    @include laptop {
+      gap: 20px;
+    }
+    @include laptop-min {
+      position: static;
+    }
+  }
+
+  &__logo {
+    width: 175px;
+    display: block;
+    @include laptop {
+      width: 150px;
+    }
+    @include laptop-middle {
+      width: 130px;
+    }
+    @include laptop-min {
+      width: 170px;
+    }
+  }
+  &__logo-img {
+    width: 100%;
+  }
+  &__nav-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    z-index: 99;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      opacity 0.4s ease,
+      visibility 0.4s ease;
+    &.active {
+      opacity: 0.5;
+      visibility: visible;
+    }
+  }
+  &__nav {
+    @include flex-between;
+    flex: 1;
+    gap: 20px;
+    @include laptop-min {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      top: 0;
+      padding: 20px;
+      max-width: 320px;
+      width: 100%;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      overflow-y: auto;
+      gap: 20px;
+      background-color: white;
+      max-width: 320px;
+      width: 100%;
+      transform: translateX(-320px);
+      z-index: 100;
+      transition: transform 0.4s ease;
+      &.open {
+        transform: translateX(0px);
+      }
+    }
+  }
+  &__nav-head {
+    display: none;
+    @include laptop-min {
+      @include flex-between;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--primary);
+      width: 100%;
+    }
+  }
+  &__nav-logo {
+    width: 150px;
+  }
+  &__nav-close {
+    @include flex-center;
+    position: relative;
+    span {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      height: 2px;
+      background-color: var(--black);
+      &:first-child {
+        transform: rotate(45deg);
+      }
+      &:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  &__btn-services {
+    display: flex;
+    align-items: center;
+    background-color: var(--porcelain);
+    border-radius: 10px;
+    padding: 14px;
+    gap: 12px;
+
+    font-size: 16px;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+    @include hover {
+      color: white;
+      background-color: var(--primary);
+      .header__services-rect {
+        span {
+          background-color: white;
+        }
+      }
+    }
+    @include laptop {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }
+  &__services-rect {
+    @include flex-center;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    gap: 3px;
+
+    span {
+      display: block;
+      border-radius: 50%;
+      width: 5px;
+      height: 5px;
+      background-color: var(--primary);
+    }
+  }
+  &__list {
+    display: flex;
+    gap: 40px;
+    @include laptop {
+      gap: 20px;
+    }
+    @include laptop-min {
+      flex-direction: column;
+    }
+    a {
+      position: relative;
+      font-size: 16px;
+      transition: color 0.2s ease;
+      @include hover {
+        color: var(--primary);
+        &::before {
+          right: 0;
+        }
+      }
+      @include laptop {
+        font-size: 14px;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        left: 0;
+        right: 100%;
+        bottom: 0;
+        height: 1px;
+        background-color: currentColor;
+        transition: right 0.2s ease;
+      }
+    }
+  }
+  &__tel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 20px;
+    transition: color 0.2s ease;
+    @include hover {
+      color: var(--primary);
+    }
+    @include laptop {
+      font-size: 16px;
+    }
+    @include laptop-middle {
+      font-size: 14px;
+    }
+  }
+  &__tel-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+  }
+  &__burger-btn {
+    display: none;
+    @include laptop-min {
+      display: flex;
+      flex-direction: column;
+      width: 30px;
+      gap: 8px;
+      margin-left: auto;
+
+      span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--primary);
+      }
+    }
+  }
+  &__services-overlay {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      opacity 0.2s ease,
+      visibility 0.2s ease;
+    z-index: 50;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    @include laptop-min {
+      top: 0;
+    }
+  }
+  &__services {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    max-height: calc(100vh - 130px);
+    overflow-y: auto;
+    z-index: 100;
+
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    width: 1400px;
+    max-width: calc(100vw - 40px);
+    margin-top: 5px;
+    background-color: white;
+    overflow-y: auto;
+    border-radius: 35px;
+    visibility: hidden;
+    transform: translateY(50px);
+    opacity: 0;
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease,
+      visibility 0.4s ease;
+    &.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0px);
+    }
+    @include laptop-min {
+      top: 20px;
+      left: 20px;
+      max-height: none;
+      height: calc(100vh - 40px);
+    }
+    @include tablet {
+      border-radius: 20px;
+    }
+  }
+  &__services-wrapper {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    width: 100%;
+    padding: 40px 230px;
+    @include desktop {
+      padding: 40px 130px;
+    }
+    @include laptop {
+      padding: 40px 80px;
+    }
+    @include laptop-middle {
+      gap: 30px;
+      padding: 40px;
+    }
+    @include laptop-min {
+      gap: 40px;
+    }
+    @include tablet {
+      padding: 30px 20px;
+    }
+  }
+  &__service-close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 15px;
+    z-index: 100;
+    display: none;
+    @include laptop-min {
+      display: block;
+    }
+  }
+  &__service-close-wrapper {
+    @include flex-center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    span {
+      position: absolute;
+      display: block;
+      background-color: var(--black);
+      width: 30px;
+      height: 2px;
+      &:first-child {
+        transform: rotate(45deg);
+      }
+      &:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  &__services-item {
+    flex: 0 1 calc(50% - 25px);
+    @include laptop-min {
+      flex-basis: 100%;
+    }
+  }
+  &__services-title {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding-bottom: 20px;
+    border-bottom: 1px solid currentColor;
+    margin-bottom: 20px;
+
+    color: var(--rainee);
+    transition: color 0.2s ease;
+    @include hover {
+      color: var(--primary);
+    }
+    @include tablet {
+      padding-bottom: 10px;
+    }
+  }
+  &__services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    @include tablet {
+      gap: 16px;
+    }
+    li {
+      flex: 0 1 calc(50% - 10px);
+      @include laptop-min {
+        flex-basis: calc(33% - 15px);
+      }
+      @include tablet {
+        flex-basis: calc(50% - 10px);
+      }
+      @include mobile {
+        flex-basis: 100%;
+      }
+      a {
+        font-size: 16px;
+        transition: color 0.2s ease;
+        @include hover {
+          color: var(--primary);
+        }
+        @include laptop-min {
+          font-size: 14px;
+        }
+        @include mobile {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

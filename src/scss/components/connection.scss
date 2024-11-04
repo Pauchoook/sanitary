@@ -1,0 +1,73 @@
+.connection {
+  position: relative;
+  padding: 70px 0px;
+  z-index: 1;
+  @include tablet {
+    padding: 50px 0px;
+  }
+  &::before {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #eceef1 0%, rgba(241, 242, 243, 0) 100%);
+    z-index: -1;
+  }
+  &__body {
+    @include flex-between;
+    gap: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.5);
+    padding: 60px;
+    border-radius: 30px;
+    @include laptop-min {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+    @include tablet {
+      padding: 30px;
+    }
+    @include tablet-min {
+      padding: 20px;
+    }
+  }
+  &__info {
+    @include laptop-min {
+      width: 100%;
+    }
+  }
+  &__title {
+    max-width: 735px;
+    margin-bottom: 30px;
+  }
+  &__content {
+    font-size: 16px;
+    color: var(--cord);
+    max-width: 585px;
+    margin: 0px 0px 30px 0px;
+    @include tablet {
+      font-size: 14px;
+    }
+  }
+  &__tel {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    font-weight: 600;
+    font-size: 18px;
+    opacity: 0.8;
+    gap: 8px;
+    transition:
+      opacity 0.2s ease,
+      color 0.2s ease;
+    @include hover {
+      color: var(--primary);
+    }
+  }
+  &__tel-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+  }
+}

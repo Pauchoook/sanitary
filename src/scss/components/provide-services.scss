@@ -1,0 +1,86 @@
+.provide-services {
+  position: relative;
+  padding: 50px 0px 210px 0px;
+  z-index: 1;
+  @include tablet {
+    padding-bottom: 120px;
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 315px;
+    background: url('@img/frame-white-rotate.png') top 0 right 0 / 100% auto no-repeat;
+    background-color: var(--sand);
+    z-index: -1;
+    @include laptop-middle {
+      height: 220px;
+    }
+    @include tablet {
+      height: 150px;
+    }
+    @include mobile {
+      height: 110px;
+    }
+  }
+  &__title {
+    text-align: center;
+    margin-bottom: 50px;
+    @include tablet {
+      margin-bottom: 25px;
+    }
+  }
+  &__menu {
+    display: flex;
+    padding: 6px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 50px;
+    background-color: var(--drift);
+    max-width: 415px;
+    width: 100%;
+    margin: 0px auto 30px auto;
+    @include tablet {
+      margin-bottom: 20px;
+    }
+    @include mobile {
+      flex-direction: column;
+      border-radius: 25px;
+    }
+  }
+  &__menu-btn {
+    min-height: 45px;
+    width: 50%;
+    border-radius: 50px;
+    font-size: 16px;
+    &.active {
+      background-color: var(--primary);
+      color: white;
+      box-shadow: 0 2px 0 0 #689d73;
+    }
+    @include tablet {
+      font-size: 14px;
+    }
+    @include mobile {
+      width: 100%;
+    }
+  }
+  &__body {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  &__btn-more {
+    margin: 50px auto 0px auto;
+    max-width: 190px;
+    min-height: 62px;
+    @include tablet {
+      margin-top: 25px;
+    }
+    @include mobile {
+      max-width: none;
+    }
+  }
+}

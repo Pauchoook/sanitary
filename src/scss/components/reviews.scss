@@ -1,0 +1,10 @@
+.reviews {
+  background-color: var(--sand);
+  &__title {
+    text-align: center;
+    margin-bottom: 50px;
+    @include tablet {
+      margin-bottom: 25px;
+    }
+  }
+}

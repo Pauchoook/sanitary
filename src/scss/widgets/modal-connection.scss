@@ -1,0 +1,22 @@
+.modal-connection {
+  &__head {
+    @include flex-between;
+    gap: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--cord);
+  }
+  &__title {
+    font-size: 32px;
+    margin: 0;
+    @include laptop {
+      font-size: 28px;
+    }
+    @include laptop-min {
+      font-size: 24px;
+    }
+  }
+  &__form {
+    margin: 0 auto;
+  }
+}
