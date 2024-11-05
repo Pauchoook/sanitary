@@ -9,6 +9,7 @@ import tab from "./files/tab.js";
 import select from "./files/select.js";
 import modal from "./files/modal.js";
 import map from "./files/map.js";
+import fancy from "./files/fancy.js";
 
 functions.mediaAdaptive();
 spoller();
@@ -19,3 +20,4 @@ tab();
 select();
 modal();
 map();
+fancy();

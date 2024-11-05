@@ -16,6 +16,8 @@
 @import "./ui/modal";
 @import "./ui/form";
 @import "./ui/select";
+@import "./ui/breadcrumbs";
+@import "./ui/video";
 
 // widgets
 @import "./widgets/modal-connection";
@@ -31,5 +33,9 @@
 @import "./components/steps";
 @import "./components/reviews";
 @import "./components/contacts";
+@import "./components/services";
+@import "./components/hero-service";
+@import "./components/presentation";
+@import "./components/prices";
 
 @import "./components/footer";

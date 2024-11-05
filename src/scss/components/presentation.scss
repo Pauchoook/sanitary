@@ -1,0 +1,73 @@
+.presentation {
+  padding: 90px 0px 130px 0px;
+  background-color: var(--sand);
+  &--reverse {
+    position: relative;
+    background-color: white;
+    z-index: 1;
+    &::before {
+      position: absolute;
+      content: "";
+      top: -220px;
+      left: 0;
+      right: 0;
+      height: 315px;
+      background: url("@img/frame-white.png") 0 0 / 100% auto no-repeat;
+      z-index: -1;
+      @include laptop {
+        top: -140px;
+      }
+      @include laptop-middle {
+        height: 220px;
+      }
+      @include laptop-min {
+        top: -90px;
+      }
+      @include tablet {
+        height: 150px;
+      }
+      @include tablet-min {
+        top: -50px;
+      }
+      @include mobile {
+        height: 110px;
+      }
+    }
+    .presentation__container {
+      flex-direction: row-reverse;
+    }
+  }
+  @include tablet {
+    padding: 60px 0px;
+  }
+  &__container {
+    display: flex;
+    align-items: start;
+    gap: 40px;
+    @include laptop-middle {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  &__info {
+    flex: 1;
+    @include laptop-middle {
+      flex: 0 1 100%;
+    }
+  }
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__content {
+    font-size: 18px;
+    line-height: 127%;
+    color: var(--lunar);
+    margin: 0;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    @include tablet {
+      font-size: 16px;
+    }
+  }
+}

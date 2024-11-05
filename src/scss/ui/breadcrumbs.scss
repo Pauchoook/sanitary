@@ -1,0 +1,36 @@
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+  @include tablet {
+    margin-bottom: 15px;
+  }
+  li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    &:not(:last-child) {
+      padding-right: 16px;
+      &::before {
+        position: absolute;
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        right: 0;
+        background-color: var(--primary);
+      }
+    }
+    &:last-child {
+      color: var(--stack);
+    }
+  }
+  a {
+    transition: color .2s ease;
+    @include hover {
+      color: var(--primary);
+    }
+  }
+}
