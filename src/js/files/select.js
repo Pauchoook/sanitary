@@ -19,6 +19,7 @@ export default function select() {
             if (e.target.classList.contains("select__item")) {
               title.textContent = e.target.textContent;
               input.value = e.target.textContent;
+              closeSelect();
             }
           })
 
@@ -33,7 +34,7 @@ export default function select() {
     function closeSelect() {
       const currentSelect = document.querySelector(".select.open");
 
-      currentSelect.classList.remove("open");
+      if (currentSelect) currentSelect.classList.remove("open");
       return document.body.removeEventListener("click", closeSelect);
     }
   }
