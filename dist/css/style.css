@@ -4224,6 +4224,12 @@ html.with-fancybox body.hide-scrollbar {
     justify-content: center;
     align-items: center
   }
+  .footer__questions {
+    text-align: center
+  }
+  .footer__questions-btn {
+    margin: 0 auto
+  }
 }
 @media (max-width:743px) {
   .title-1 {
@@ -4600,12 +4606,6 @@ html.with-fancybox body.hide-scrollbar {
   }
   .more-services__slider {
     overflow: visible!important
-  }
-  .footer__questions {
-    text-align: center
-  }
-  .footer__questions-btn {
-    margin: 0 auto
   }
   .footer__head {
     flex-direction: column
