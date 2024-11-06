@@ -29,6 +29,15 @@
       }
     }
   }
+  @include laptop-min {
+    &.active {
+      transform: translateY(0);
+      .header__main-wrapper {
+        gap: 10px;
+        padding: 8px 15px;
+      }
+    }
+  }
   &__top {
     padding: 9px 0px;
     background-color: var(--porcelain);

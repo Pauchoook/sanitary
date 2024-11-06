@@ -4004,6 +4004,14 @@ html.with-fancybox body.hide-scrollbar {
   .modal-connection__title {
     font-size: 24px
   }
+  .header.active {
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+  .header.active .header__main-wrapper {
+    gap: 10px;
+    padding: 8px 15px
+  }
   .header__top {
     display: none
   }
