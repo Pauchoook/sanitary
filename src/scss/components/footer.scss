@@ -42,6 +42,9 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    @include mobile {
+      text-align: center;
+    }
   }
   &__questins-title {
     font-weight: 600;
@@ -63,6 +66,9 @@
   &__questions-btn {
     max-width: 155px;
     min-height: 45px;
+    @include mobile {
+      margin: 0 auto;
+    }
   }
   &__info {
     flex: 0 1 835px;
@@ -74,8 +80,16 @@
     @include tablet {
       gap: 20px;
     }
+    @include mobile {
+      flex-direction: column;
+    }
   }
   &__contacts {
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
   &__tel {
     display: block;
@@ -123,6 +137,9 @@
   &__address {
     font-size: 16px;
     color: var(--stack);
+    @include mobile {
+      text-align: center;
+    }
   }
   &__nav {
     display: flex;
@@ -135,6 +152,10 @@
     }
     @include tablet {
       margin-top: 30px;
+    }
+    @include mobile {
+      align-items: center;
+      justify-content: center;
     }
   }
   &__nav-item {
@@ -158,14 +179,24 @@
     @include tablet {
       font-size: 18px;
     }
+    @include mobile {
+      text-align: center;
+    }
   }
   &__nav-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     row-gap: 12px;
+    @include mobile {
+      align-items: center;
+      justify-content: center;
+    }
     li {
       flex: 0 1 calc(50% - 10px);
+      @include mobile {
+        @include flex-center;
+      }
       @include mobile-min {
         flex-basis: 100%;
       }
@@ -173,8 +204,9 @@
     a {
       display: block;
       width: fit-content;
+      text-align: center;
       font-size: 16px;
-      transition: color .2s ease;
+      transition: color 0.2s ease;
       @include hover {
         color: var(--primary);
       }
@@ -192,7 +224,7 @@
       justify-content: center;
     }
     a {
-      transition: color .2s ease;
+      transition: color 0.2s ease;
       @include hover {
         color: var(--primary);
       }

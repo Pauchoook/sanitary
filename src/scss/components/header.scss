@@ -10,7 +10,6 @@
     transform: translateY(-60px);
     background-color: transparent;
     box-shadow: none;
-
     .header__main {
       background-color: transparent;
     }
@@ -31,9 +30,9 @@
   }
   @include laptop-min {
     &.active {
-      transform: translateY(0);
+      transform: none;
       .header__main-wrapper {
-        gap: 10px;
+        gap: 0px;
         padding: 8px 15px;
       }
     }
@@ -52,7 +51,9 @@
   &__city {
     font-size: 16px;
     @include laptop-min {
+      display: block;
       font-size: 14px;
+      margin-bottom: 10px;
     }
   }
   &__top-info {
@@ -137,6 +138,8 @@
     }
     @include laptop-min {
       position: static;
+      justify-content: start;
+      gap: 0px;
     }
   }
 
@@ -151,6 +154,9 @@
     }
     @include laptop-min {
       width: 170px;
+    }
+    @include mobile {
+      width: 120px;
     }
   }
   &__logo-img {
@@ -178,16 +184,12 @@
     @include laptop-min {
       position: fixed;
       left: 0;
-      bottom: 0;
       top: 0;
       padding: 20px;
       max-width: 320px;
       width: 100%;
-      flex-direction: column;
-      align-items: start;
-      justify-content: start;
+      display: block;
       overflow-y: auto;
-      gap: 20px;
       background-color: white;
       max-width: 320px;
       width: 100%;
@@ -206,6 +208,7 @@
       padding-bottom: 15px;
       border-bottom: 1px solid var(--primary);
       width: 100%;
+      margin-bottom: 20px;
     }
   }
   &__nav-logo {
@@ -253,6 +256,24 @@
       padding: 8px;
       font-size: 14px;
     }
+    @include laptop-min {
+      position: relative;
+      width: 100%;
+      &._spoller-active {
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+      &::after {
+        position: absolute;
+        content: "";
+        width: 20px;
+        height: 20px;
+        right: 15px;
+        background: url('@img/arrow.svg') center / 100% auto no-repeat;
+        transition: transform .2s ease;
+      }
+    }
   }
   &__services-rect {
     @include flex-center;
@@ -278,6 +299,8 @@
     }
     @include laptop-min {
       flex-direction: column;
+      gap: 15px;
+      margin: 20px 0px;
     }
     a {
       position: relative;
@@ -320,11 +343,31 @@
     @include laptop-middle {
       font-size: 14px;
     }
+    @include laptop-min {
+      margin-bottom: 20px;
+    }
   }
   &__tel-icon {
     width: 24px;
     height: 24px;
     color: var(--primary);
+  }
+  &__tel-btn {
+    display: none;
+    width: 35px;
+    height: 35px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    color: white;
+    margin-left: auto;
+    margin-right: 25px;
+    @include laptop-min {
+      @include flex-center;
+    }
+  }
+  &__tel-btn-icon {
+    width: 20px;
+    height: 20px;
   }
   &__burger-btn {
     display: none;
@@ -333,7 +376,6 @@
       flex-direction: column;
       width: 30px;
       gap: 8px;
-      margin-left: auto;
 
       span {
         display: block;
@@ -371,7 +413,6 @@
     right: 0;
     top: 100%;
     max-height: calc(100vh - 130px);
-    overflow-y: auto;
     z-index: 100;
 
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
@@ -394,10 +435,17 @@
       transform: translateY(0px);
     }
     @include laptop-min {
-      top: 20px;
-      left: 20px;
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0px);
+      box-shadow: none;
+      max-width: none;
       max-height: none;
-      height: calc(100vh - 40px);
+      overflow-y: visible;
+      width: 100%;
+      margin-top: 0;
+      border-radius: 0;
     }
     @include tablet {
       border-radius: 20px;
@@ -421,47 +469,16 @@
       padding: 40px;
     }
     @include laptop-min {
-      gap: 40px;
-    }
-    @include tablet {
-      padding: 30px 20px;
-    }
-  }
-  &__service-close {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    top: 10px;
-    right: 15px;
-    z-index: 100;
-    display: none;
-    @include laptop-min {
-      display: block;
-    }
-  }
-  &__service-close-wrapper {
-    @include flex-center;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    span {
-      position: absolute;
-      display: block;
-      background-color: var(--black);
-      width: 30px;
-      height: 2px;
-      &:first-child {
-        transform: rotate(45deg);
-      }
-      &:last-child {
-        transform: rotate(-45deg);
-      }
+      gap: 20px;
+      padding: 15px 0px 15px 0px;
+      border-bottom: 1px solid var(--primary);
+      flex-direction: column;
     }
   }
   &__services-item {
     flex: 0 1 calc(50% - 25px);
     @include laptop-min {
-      flex-basis: 100%;
+      flex: none;
     }
   }
   &__services-title {
@@ -477,26 +494,22 @@
     @include hover {
       color: var(--primary);
     }
-    @include tablet {
-      padding-bottom: 10px;
+    @include laptop-min {
+      padding-bottom: 0;
+      border-bottom: none;
     }
   }
   &__services-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    @include tablet {
-      gap: 16px;
+    @include laptop-min {
+      gap: 10px;
+      flex-direction: column;
     }
     li {
       flex: 0 1 calc(50% - 10px);
       @include laptop-min {
-        flex-basis: calc(33% - 15px);
-      }
-      @include tablet {
-        flex-basis: calc(50% - 10px);
-      }
-      @include mobile {
         flex-basis: 100%;
       }
       a {

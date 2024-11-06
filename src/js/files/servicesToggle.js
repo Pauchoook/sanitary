@@ -2,16 +2,12 @@ import { handleBurgerClose } from "./burger.js";
 
 export default function servicesToggle() {
   const services = document.querySelector("#services");
-  if (services) {
+  if (services && window.matchMedia("(min-width: 993px)").matches) {
     const btnServices = document.querySelector("#btn-services");
     const overlay = document.querySelector("#services-overlay");
     const header = document.querySelector(".header");
-    const btnClose = document.querySelector("#services-close");
 
     const burger = document.querySelector("#burger");
-
-    btnClose.addEventListener("click", closeServices);
-
 
     btnServices.addEventListener("click", () => {
       if (!services.classList.contains("open")) {

@@ -283,6 +283,11 @@
             if (target.hidden) return _slideDown(target, duration); else return _slideUp(target, duration);
         };
     }
+    function uniqArray(array) {
+        return array.filter((function(item, index, self) {
+            return self.indexOf(item) === index;
+        }));
+    }
     function burger() {
         const burger = document.querySelector("#burger");
         const burgerOpen = document.querySelector("#burger-open");
@@ -300,6 +305,15 @@
                     burgerOverlay.addEventListener("click", handleBurgerClose);
                 } else handleBurgerClose();
             }));
+            function updateHeightBurger() {
+                const height = window.visualViewport.height;
+                burger.style.height = `${height}px`;
+            }
+            if (window.matchMedia("(max-width: 992px)").matches) {
+                window.visualViewport.addEventListener("resize", updateHeightBurger);
+                window.visualViewport.addEventListener("scroll", updateHeightBurger);
+                updateHeightBurger();
+            }
             burgerClose.addEventListener("click", handleBurgerClose);
         }
     }
@@ -313,13 +327,11 @@
     }
     function servicesToggle() {
         const services = document.querySelector("#services");
-        if (services) {
+        if (services && window.matchMedia("(min-width: 993px)").matches) {
             const btnServices = document.querySelector("#btn-services");
             const overlay = document.querySelector("#services-overlay");
             const header = document.querySelector(".header");
-            const btnClose = document.querySelector("#services-close");
             const burger = document.querySelector("#burger");
-            btnClose.addEventListener("click", closeServices);
             btnServices.addEventListener("click", (() => {
                 if (!services.classList.contains("open")) {
                     if (burger.classList.contains("open")) handleBurgerClose();

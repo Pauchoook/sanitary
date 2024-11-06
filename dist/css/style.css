@@ -885,6 +885,20 @@ body {
   height: 24px;
   color: var(--primary)
 }
+.header__tel-btn {
+  display: none;
+  width: 35px;
+  height: 35px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  color: #fff;
+  margin-left: auto;
+  margin-right: 25px
+}
+.header__tel-btn-icon {
+  width: 20px;
+  height: 20px
+}
 .header__burger-btn {
   display: none
 }
@@ -911,7 +925,6 @@ body {
   right: 0;
   top: 100%;
   max-height: calc(100vh - 130px);
-  overflow-y: auto;
   z-index: 100;
   box-shadow: 0 0 20px 0 rgba(0,0,0,.1);
   width: 1400px;
@@ -941,38 +954,6 @@ body {
   gap: 50px;
   width: 100%;
   padding: 40px 230px
-}
-.header__service-close {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  top: 10px;
-  right: 15px;
-  z-index: 100;
-  display: none
-}
-.header__service-close-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  height: 100%
-}
-.header__service-close-wrapper span {
-  position: absolute;
-  display: block;
-  background-color: var(--black);
-  width: 30px;
-  height: 2px
-}
-.header__service-close-wrapper span:first-child {
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg)
-}
-.header__service-close-wrapper span:last-child {
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg)
 }
 .header__services-item {
   flex: 0 1 calc(50% - 25px)
@@ -2019,6 +2000,7 @@ body {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  text-align: center;
   font-size: 16px;
   transition: color .2s ease
 }
@@ -4005,18 +3987,20 @@ html.with-fancybox body.hide-scrollbar {
     font-size: 24px
   }
   .header.active {
-    -webkit-transform: translateY(0);
-    transform: translateY(0)
+    -webkit-transform: none;
+    transform: none
   }
   .header.active .header__main-wrapper {
-    gap: 10px;
+    gap: 0;
     padding: 8px 15px
   }
   .header__top {
     display: none
   }
   .header__city {
-    font-size: 14px
+    display: block;
+    font-size: 14px;
+    margin-bottom: 10px
   }
   .header__top-info {
     gap: 15px;
@@ -4035,7 +4019,9 @@ html.with-fancybox body.hide-scrollbar {
     margin-top: 30px
   }
   .header__main-wrapper {
-    position: static
+    position: static;
+    justify-content: start;
+    gap: 0
   }
   .header__logo {
     width: 170px
@@ -4043,16 +4029,12 @@ html.with-fancybox body.hide-scrollbar {
   .header__nav {
     position: fixed;
     left: 0;
-    bottom: 0;
     top: 0;
     padding: 20px;
     max-width: 320px;
     width: 100%;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
+    display: block;
     overflow-y: auto;
-    gap: 20px;
     background-color: #fff;
     max-width: 320px;
     width: 100%;
@@ -4073,17 +4055,46 @@ html.with-fancybox body.hide-scrollbar {
     justify-content: space-between;
     padding-bottom: 15px;
     border-bottom: 1px solid var(--primary);
+    width: 100%;
+    margin-bottom: 20px
+  }
+  .header__btn-services {
+    position: relative;
     width: 100%
   }
+  .header__btn-services._spoller-active::after {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg)
+  }
+  .header__btn-services::after {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    right: 15px;
+    background: url(../img/arrow.svg) center/100% auto no-repeat;
+    transition: -webkit-transform .2s ease;
+    transition: transform .2s ease;
+    transition: transform .2s ease,-webkit-transform .2s ease
+  }
   .header__list {
-    flex-direction: column
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0
+  }
+  .header__tel {
+    margin-bottom: 20px
+  }
+  .header__tel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center
   }
   .header__burger-btn {
     display: flex;
     flex-direction: column;
     width: 30px;
-    gap: 8px;
-    margin-left: auto
+    gap: 8px
   }
   .header__burger-btn span {
     display: block;
@@ -4095,22 +4106,38 @@ html.with-fancybox body.hide-scrollbar {
     top: 0
   }
   .header__services {
-    top: 20px;
-    left: 20px;
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    box-shadow: none;
+    max-width: none;
     max-height: none;
-    height: calc(100vh - 40px)
+    overflow-y: visible;
+    width: 100%;
+    margin-top: 0;
+    border-radius: 0
   }
   .header__services-wrapper {
-    gap: 40px
-  }
-  .header__service-close {
-    display: block
+    gap: 20px;
+    padding: 15px 0 15px 0;
+    border-bottom: 1px solid var(--primary);
+    flex-direction: column
   }
   .header__services-item {
-    flex-basis: 100%
+    flex: none
+  }
+  .header__services-title {
+    padding-bottom: 0;
+    border-bottom: none
+  }
+  .header__services-list {
+    gap: 10px;
+    flex-direction: column
   }
   .header__services-list li {
-    flex-basis: calc(33% - 15px)
+    flex-basis: 100%
   }
   .header__services-list li a {
     font-size: 14px
@@ -4226,18 +4253,6 @@ html.with-fancybox body.hide-scrollbar {
   }
   .header__services {
     border-radius: 20px
-  }
-  .header__services-wrapper {
-    padding: 30px 20px
-  }
-  .header__services-title {
-    padding-bottom: 10px
-  }
-  .header__services-list {
-    gap: 16px
-  }
-  .header__services-list li {
-    flex-basis: calc(50% - 10px)
   }
   .hero__list {
     margin-bottom: 25px
@@ -4512,8 +4527,8 @@ html.with-fancybox body.hide-scrollbar {
   .card-services__title {
     font-size: 14px
   }
-  .header__services-list li {
-    flex-basis: 100%
+  .header__logo {
+    width: 120px
   }
   .header__services-list li a {
     font-size: 16px
@@ -4585,6 +4600,39 @@ html.with-fancybox body.hide-scrollbar {
   }
   .more-services__slider {
     overflow: visible!important
+  }
+  .footer__questions {
+    text-align: center
+  }
+  .footer__questions-btn {
+    margin: 0 auto
+  }
+  .footer__head {
+    flex-direction: column
+  }
+  .footer__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
+  .footer__address {
+    text-align: center
+  }
+  .footer__nav {
+    align-items: center;
+    justify-content: center
+  }
+  .footer__nav-title {
+    text-align: center
+  }
+  .footer__nav-list {
+    align-items: center;
+    justify-content: center
+  }
+  .footer__nav-list li {
+    display: flex;
+    align-items: center;
+    justify-content: center
   }
 }
 @media (max-width:419px) {

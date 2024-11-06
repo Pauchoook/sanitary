@@ -20,6 +20,19 @@ export default function burger() {
       }
     });
 
+    function updateHeightBurger() {
+      const height = window.visualViewport.height;
+
+      burger.style.height = `${height}px`;
+    }
+
+    if (window.matchMedia("(max-width: 992px)").matches) {
+      window.visualViewport.addEventListener("resize", updateHeightBurger);
+      window.visualViewport.addEventListener("scroll", updateHeightBurger);
+
+      updateHeightBurger();
+    }
+
     burgerClose.addEventListener("click", handleBurgerClose);
   }
 }
