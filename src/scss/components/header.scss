@@ -9,6 +9,7 @@
   &.active {
     transform: translateY(-60px);
     background-color: transparent;
+    box-shadow: none;
 
     .header__main {
       background-color: transparent;

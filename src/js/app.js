@@ -10,6 +10,7 @@ import select from "./files/select.js";
 import modal from "./files/modal.js";
 import map from "./files/map.js";
 import fancy from "./files/fancy.js";
+import sliders from "./files/sliders.js";
 
 functions.mediaAdaptive();
 spoller();
@@ -21,3 +22,4 @@ select();
 modal();
 map();
 fancy();
+sliders();

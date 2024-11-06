@@ -1,0 +1,32 @@
+.slider-nav {
+  display: flex;
+  &__btn {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.15);
+    color: var(--primary);
+    transition: color .2s ease, background-color .2s ease;
+    @include hover {
+      background-color: var(--primary);
+      color: white;
+    }
+    &--next {
+      .slider-nav__arrow {
+        transform: translateX(2px);
+      }
+    }
+    &--prev {
+      transform: rotate(180deg);
+      .slider-nav__arrow {
+        transform: translateX(2px);
+      }
+    }
+  }
+  &__arrow {
+    width: 20px;
+    height: 20px;
+  }
+}

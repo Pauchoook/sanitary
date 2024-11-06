@@ -1,59 +1,32 @@
-.contacts {
-  position: relative;
-  z-index: 1;
-  min-height: 890px;
+.contacts-main {
   background-color: var(--sand);
-  padding-top: 200px;
-  @include laptop {
-    padding-top: 150px;
-    min-height: 800px;
+  padding: 185px 0px 130px 0px;
+  @include laptop-min {
+    padding: 120px 0px 100px 0px;
   }
-  @include laptop-middle {
-    min-height: auto;
-    padding-top: 70px;
+  @include tablet {
+    padding-bottom: 50px;
   }
-  &::before {
-    position: absolute;
-    content: "";
-    left: 0;
-    right: 0;
-    top: 0;
-    background: url("@img/frame-white.png") bottom 0 right 0 / 100% auto no-repeat;
-    height: calc(100% - 580px);
-    z-index: -1;
-    @include laptop {
-      height: calc(100% - 540px);
-    }
-    @include laptop-middle {
-      display: none;
-    }
+  &__breadcrumbs {
+    justify-content: center;
   }
   &__title {
     text-align: center;
-    margin-bottom: 105px;
-    @include laptop-middle {
-      margin-bottom: 50px;
-    }
+    margin-bottom: 50px;
     @include tablet {
       margin-bottom: 25px;
     }
   }
-  &__map {
-    position: absolute;
-    height: 580px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    @include laptop {
-      height: 540px;
+  &__body {
+    display: flex;
+    align-items: stretch;
+    gap: 40px;
+    @include laptop-min {
+      gap: 20px;
     }
-    @include laptop-middle {
-      height: 400px;
-      position: static;
+    @include tablet {
       width: 100%;
-    }
-    @include tablet-min {
-      height: 300px;
+      flex-wrap: wrap;
     }
   }
   &__info {
@@ -65,12 +38,11 @@
     margin-left: auto;
     z-index: 10;
     @include laptop-middle {
-      width: 100%;
-      max-width: none;
       box-shadow: none;
-      margin-bottom: 30px;
     }
     @include tablet {
+      max-width: none;
+      width: 100%;
       padding: 20px;
     }
     a {
@@ -147,5 +119,17 @@
   &__work {
     font-size: 16px;
     color: var(--stack);
+  }
+  &__map {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    @include tablet {
+      height: 400px;
+      width: 100%;
+    }
+    @include tablet-min {
+      height: 300px;
+    }
   }
 }

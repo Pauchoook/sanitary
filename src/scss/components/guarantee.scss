@@ -1,0 +1,99 @@
+.guarantee {
+  padding: 60px 0px 0px 0px;
+  @include laptop {
+    padding-top: 0;
+  }
+  &__body {
+    position: relative;
+    border-radius: 30px;
+    padding: 75px;
+    background: radial-gradient(152.43% 85.32% at 22.11% 43.49%, rgb(250, 255, 236) 0%, rgb(181, 233, 143) 100%);
+    z-index: 1;
+    @include laptop-min {
+      padding: 40px;
+    }
+    @include tablet {
+      padding: 35px;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      inset: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      border: 2px solid white;
+      z-index: -1;
+      @include tablet {
+        inset: 10px;
+      }
+    }
+  }
+  &__peoples {
+    position: absolute;
+    left: 85px;
+    bottom: 0;
+    width: 530px;
+    @include laptop {
+      left: 0;
+      width: 340px;
+    }
+    @include laptop-middle {
+      width: 270px;
+    }
+    @include laptop-min {
+      display: none;
+    }
+  }
+  &__shield {
+    position: absolute;
+    width: 205px;
+    left: 85px;
+    bottom: -20px;
+    @include laptop {
+      width: 150px;
+    }
+    @include laptop-middle {
+      width: 120px;
+      left: 30px;
+    }
+    @include laptop-min {
+      left: auto;
+      bottom: auto;
+      top: -60px;
+      right: 20px;
+    }
+    @include tablet {
+      width: 80px;
+      top: -20px;
+    }
+    @include mobile-min {
+      top: auto;
+      bottom: -50px;
+    }
+  }
+  &__info {
+    max-width: 590px;
+    margin-left: auto;
+    @include laptop-min {
+      max-width: none;
+    }
+  }
+  &__title {
+    margin-bottom: 30px;
+    @include tablet {
+      margin-bottom: 20px;
+    }
+  }
+  &__content {
+    font-size: 18px;
+    color: var(--lunar);
+    @include tablet {
+      font-size: 16px;
+    }
+    p {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

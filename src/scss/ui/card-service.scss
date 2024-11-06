@@ -1,19 +1,19 @@
 .card-services {
   display: block;
-  width: 335px;
+  width: 335px !important;
   @include hover {
     .card-services__btn {
       transform: translateY(0);
     }
   }
   @include tablet {
-    width: 255px;
+    width: 255px !important;
   }
   @include tablet-min {
-    width: 210px;
+    width: 210px !important;
   }
   @include mobile {
-    width: 155px;
+    width: 155px !important;
   }
   &__wrapper {
     position: relative;
